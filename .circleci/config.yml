@@ -31,9 +31,9 @@ jobs:
             sudo rm /var/lib/dpkg/lock
             sudo dpkg --configure -a
             sudo apt-get install software-properties-common
-            sudo add-apt-repository ppa:deadsnakes/ppa
+            sudo add-apt-repository ppa:fkrull/deadsnakes
             sudo apt-get update
-            sudo apt-get install python3.6
+            sudo apt-get install python3.5.2
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
