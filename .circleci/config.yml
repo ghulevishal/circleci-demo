@@ -95,7 +95,7 @@ jobs:
             helm init --wait --service-account tiller
       - run:
           name: deploy sample nginx
-          command: kubectl run circleci-example --image=nginx
+          command: kubectl apply -f k8s/rsvp.yaml
       - run:
           name: dump pods & services
           command: |
