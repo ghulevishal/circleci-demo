@@ -54,8 +54,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
-            python3 -m pytest tests/test_rsvpapp.py  
+            python -m pytest tests/test_rsvpapp.py  
             
       - run:
           name: build image
