@@ -41,6 +41,12 @@ jobs:
       # other common Python testing frameworks include pytest and nose
       # https://pytest.org
       # https://nose.readthedocs.io
+      
+      - run:
+          name: install docker
+          command: |
+            curl -fsSL get.docker.com | sh
+
       - run:
           name: build image
           command: |
