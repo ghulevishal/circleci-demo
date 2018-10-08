@@ -36,7 +36,7 @@ jobs:
             sleep 5
             sudo rm /var/lib/dpkg/lock
             sudo dpkg --configure -a
-            sudo apt-get install python3.5.2
+            sudo apt-get install python3.5
             sleep 5
             python3 -m venv venv
             . venv/bin/activate
