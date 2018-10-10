@@ -59,8 +59,8 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t vishalcloudyuga/rsvpapp:circleci .
+            docker build -t vishalcloudyuga/rsvpapp .
             cat my_password.txt | docker login --username vishalcloudyuga --password-stdin
-            docker push vishalcloudyuga/rsvpapp:circleci 
+            docker push vishalcloudyuga/rsvpapp:latest
       
 
