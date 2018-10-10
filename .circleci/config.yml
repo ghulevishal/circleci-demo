@@ -19,12 +19,6 @@ jobs:
           
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "requirements.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
       - run:
           name: install dependencies
           command: |
@@ -59,8 +53,8 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t vishalcloudyuga/rsvpapp:circleci .
+            docker build -t vishalcloudyuga/rsvpapp .
             cat my_password.txt | docker login --username vishalcloudyuga --password-stdin
-            docker push vishalcloudyuga/rsvpapp:circleci 
+            docker push vishalcloudyuga/rsvpapp:latest
       
 
