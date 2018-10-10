@@ -3,9 +3,7 @@ kind: Deployment
 metadata:
   name: rsvp
 spec:
-  replicas: 1
-  strategy:
-    type: Recreate  
+  replicas: 1 
   selector:
     matchLabels:
       app: rsvp
@@ -16,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rsvp-app
-        image: vishalcloudyuga/rsvpapp:circleci
+        image: vishalcloudyuga/rsvpapp:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
