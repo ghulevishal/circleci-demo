@@ -3,9 +3,7 @@ kind: Deployment
 metadata:
   name: rsvp
 spec:
-  replicas: 3
-  strategy:
-    type: Recreate  
+  replicas: 4 
   selector:
     matchLabels:
       app: rsvp
