@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rsvp-app
-        image: vishalcloudyuga/rsvpapp
+        image: vishalcloudyuga/rsvpapp:dev
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
