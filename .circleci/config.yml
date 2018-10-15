@@ -52,12 +52,14 @@ jobs:
             cat my_password.txt | docker login --username vishalcloudyuga --password-stdin
             docker push vishalcloudyuga/rsvpapp:dev
       
+
 workflows:
   version: 2
-  test and build:
+  build-and-deploy:
     jobs:
       - test
-      - build
+      - build:
           requires:
             - test
+
 
