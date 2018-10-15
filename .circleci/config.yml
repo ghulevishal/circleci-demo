@@ -3,7 +3,7 @@ version: 2.1
 executors:
   my-executor:
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/classic:201808-01
 # based on https://github.com/gavinzhou/ci-minikube
 # https://github.com/kubernetes/minikube#linux-continuous-integration-without-vm-support
 
