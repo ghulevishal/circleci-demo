@@ -39,11 +39,8 @@ jobs:
             python -m pytest tests/test_rsvpapp.py  
 
   build:
-    requires:
-    - test
     machine:
       image: circleci/classic:201808-01
-
     working_directory: ~/repo
           
     steps:
@@ -61,5 +58,6 @@ workflows:
     jobs:
       - test
       - build
-
+          requires:
+            - test
 
