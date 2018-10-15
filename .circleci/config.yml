@@ -2,8 +2,9 @@
 # https://github.com/kubernetes/minikube#linux-continuous-integration-without-vm-support
 version: 2
 
+
 jobs:
-  build:
+  test:
     machine:
       image: circleci/classic:201808-01
 
@@ -36,7 +37,16 @@ jobs:
           name: run tests
           command: |
             python -m pytest tests/test_rsvpapp.py  
-            
+
+jobs:
+  build:
+    machine:
+      image: circleci/classic:201808-01
+
+    working_directory: ~/repo
+          
+    steps:
+      - checkout 
       - run:
           name: build image
           command: |
@@ -48,8 +58,7 @@ workflows:
   version: 2
   test and build:
     jobs:
-      - install dependencies
-      - run tests
-      - build image
+      - test
+      - build
 
 
