@@ -1,12 +1,15 @@
+
+version: 2.1
+executors:
+  my-executor:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
 # based on https://github.com/gavinzhou/ci-minikube
 # https://github.com/kubernetes/minikube#linux-continuous-integration-without-vm-support
-version: 2
-
 
 jobs:
   test:
-    machine:
-      image: circleci/classic:201808-01
+    executor: my-executor
 
     working_directory: ~/repo
           
@@ -39,8 +42,7 @@ jobs:
             python -m pytest tests/test_rsvpapp.py  
 
   build:
-    machine:
-      image: circleci/classic:201808-01
+    executor: my-executor
     working_directory: ~/repo
           
     steps:
@@ -51,8 +53,7 @@ jobs:
             docker build -t vishalcloudyuga/rsvpapp:dev .
  
   push:
-    machine:
-      image: circleci/classic:201808-01
+    executor: my-executor
     working_directory: ~/repo
     steps:
       - checkout 
@@ -63,7 +64,7 @@ jobs:
             docker push vishalcloudyuga/rsvpapp:dev
 
 workflows:
-  version: 2
+  version: 2.1
   build-and-deploy:
     jobs:
       - test
