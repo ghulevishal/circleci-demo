@@ -33,11 +33,6 @@ jobs:
       # https://nose.readthedocs.io
       
       - run:
-          name: install docker
-          command: |
-            # curl -fsSL get.docker.com | sh
-
-      - run:
           name: run tests
           command: |
             python -m pytest tests/test_rsvpapp.py  
@@ -49,4 +44,12 @@ jobs:
             cat my_password.txt | docker login --username vishalcloudyuga --password-stdin
             docker push vishalcloudyuga/rsvpapp:dev
       
+workflows:
+  version: 2
+  test and build:
+    jobs:
+      - install dependencies
+      - run tests
+      - build image
+
 
