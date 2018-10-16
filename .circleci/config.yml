@@ -46,7 +46,7 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_PR_NUMBER .
+            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_BUILD_NUM .
  
   push:
     machine:
@@ -58,9 +58,9 @@ jobs:
       - run:
           name: Push image
           command: |
-            docker build -t vishalcloudyuga/rsvpapp:$CIRCLE_PR_NUMBER .
+            docker build -t vishalcloudyuga/rsvpapp:$CIRCLE_BUILD_NUM .
             echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
-            docker push $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_PR_NUMBER
+            docker push $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_BUILD_NUM
 
 workflows:
   version: 2
