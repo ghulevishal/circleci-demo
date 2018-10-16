@@ -66,7 +66,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - test
+      - test:
           context: DOCKERHUB
           filters:
             branches:
