@@ -46,7 +46,7 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t vishalcloudyuga/rsvpapp:dev .
+            docker build -t $DOCKERHUB_USERNAME/rsvpapp:dev .
  
   push:
     machine:
@@ -59,8 +59,8 @@ jobs:
           name: Push image
           command: |
             docker build -t vishalcloudyuga/rsvpapp:dev .
-            echo $DOCKERHUB_PASSWORD | docker login --username vishalcloudyuga --password-stdin
-            docker push vishalcloudyuga/rsvpapp:dev
+            echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
+            docker push $DOCKERHUB_USERNAME/rsvpapp:dev
 
 workflows:
   version: 2
