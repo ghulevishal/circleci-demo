@@ -59,7 +59,7 @@ jobs:
           name: Push image
           command: |
             docker build -t vishalcloudyuga/rsvpapp:dev .
-            cat $DOCKERHUB_PASSWORD | docker login --username vishalcloudyuga --password-stdin
+            echo $DOCKERHUB_PASSWORD | docker login --username vishalcloudyuga --password-stdin
             docker push vishalcloudyuga/rsvpapp:dev
 
 workflows:
