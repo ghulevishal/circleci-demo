@@ -46,7 +46,7 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t vishalcloudyuga/rsvpapp:dev .
+            docker build -t $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_SHA1 .
  
   push:
     machine:
@@ -58,9 +58,9 @@ jobs:
       - run:
           name: Push image
           command: |
-            docker build -t vishalcloudyuga/rsvpapp:dev .
-            echo $DOCKERHUB_PASSWORD | docker login --username vishalcloudyuga --password-stdin
-            docker push vishalcloudyuga/rsvpapp:dev
+            docker build -t vishalcloudyuga/rsvpapp:$CIRCLE_SHA1 .
+            echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
+            docker push $DOCKERHUB_USERNAME/rsvpapp:$CIRCLE_SHA1	
 
 workflows:
   version: 2
@@ -85,4 +85,3 @@ workflows:
           filters:
             branches:
               only: dev
-
